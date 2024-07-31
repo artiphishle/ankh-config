@@ -77,9 +77,7 @@ export function getConfig() {
                 ui: 'AnkhUiHtml', p: {}, uis: [
                   { ui: 'AnkhUiHeading', p: { level: 'h1', text: 'Theme' } },
                   { ui: 'AnkhUiHeading', p: { level: 'h2', text: 'Colors' } },
-                  { ui: 'AnkhUiColorPaletteGenerator', p: { tone: EAnkhColorTone.Jewel } },
-                  { ui: 'AnkhUiColorWheel', p: {} },
-                  { ui: 'AnkhUiColorHue', p: { color: 'lab(20 -10 -50)' } },
+                  { ui: 'AnkhUiColorPaletteGenerator', p: { tone: EAnkhColorTone.Earth } }
                 ],
               }]
           },
