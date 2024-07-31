@@ -1,0 +1,53 @@
+{
+  "author": "artiphishle",
+  "bugs": {
+    "url": "https://github.com/artiphishle/ankh-config/issues"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "ankh-types": "^1.0.6",
+    "prettier": "^3.3.3",
+    "tsup": "^8.2.3",
+    "typescript": "^5.5.4"
+  },
+  "description": "Ankhorage Configuration",
+  "homepage": "https://github.com/artiphishle/ankh-config#readme",
+  "keywords": [
+    "ankhorage",
+    "ankh",
+    "config"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "name": "ankh-config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artiphishle/ankh-config.git"
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "tsc",
+    "prepublish": "pnpm run build",
+    "prettier:write": "prettier --config .prettierrc.mjs --write ."
+  },
+  "tsup": {
+    "dts": true,
+    "entry": [
+      "lib/**/*.ts"
+    ],
+    "format": [
+      "cjs",
+      "esm"
+    ],
+    "splitting": false,
+    "sourcemap": false,
+    "clean": true
+  },
+  "types": "dist/index.d.ts",
+  "version": "1.0.0",
+  "dependencies": {
+    "@types/node": "^22.0.0",
+    "react": "^18.3.1"
+  }
+}
