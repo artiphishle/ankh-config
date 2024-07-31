@@ -52,8 +52,9 @@
     ],
     "splitting": false,
     "sourcemap": false,
-    "clean": true
+    "clean": true,
+    "onSuccess": "node scripts/addClientDirective.js"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.2"
+  "version": "1.0.4"
 }
