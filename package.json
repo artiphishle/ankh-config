@@ -3,12 +3,22 @@
   "bugs": {
     "url": "https://github.com/artiphishle/ankh-config/issues"
   },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "devDependencies": {
+    "@types/node": "^22.0.0",
     "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "ankh-types": "^1.0.6",
     "prettier": "^3.3.3",
     "tsup": "^8.2.3",
     "typescript": "^5.5.4"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "description": "Ankhorage Configuration",
   "homepage": "https://github.com/artiphishle/ankh-config#readme",
@@ -45,9 +55,5 @@
     "clean": true
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.1",
-  "dependencies": {
-    "@types/node": "^22.0.0",
-    "react": "^18.3.1"
-  }
+  "version": "1.0.2"
 }
