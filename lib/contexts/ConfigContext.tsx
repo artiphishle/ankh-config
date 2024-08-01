@@ -23,43 +23,23 @@ export function getConfig() {
     },
   };
   const header = { ui: 'AnkhUiHtml', p: { tagName: 'header' }, uis: [{ ...nav }] };
-  const styles: TStyle[] = [
-    [':root', '--primary-color', 'hsl(219, 78%, 33%)'],
-    [':root', '--secondary-color', 'hsl(39, 22%, 67%)'],
-    [':root', '--base-color', 'hsl(0, 0%, 93%)'],
-    ['html', 'font-family', 'Arial'],
-    ['html', 'font-size', '100%'],
-    ['body', 'background-color', '#fff'],
-    ['body > header', 'padding', '1rem'],
-    ['body > header', 'background-color', '#222'],
-    ["[data-ui='accordion']", 'background-color', '#cdcdd1'],
-    ["[data-ui='accordion']", 'padding', '2rem'],
-    ["[data-ui='accordion-summary']", 'text-transform', 'uppercase'],
-    ["[data-ui='accordion-details']", 'letter-spacing', '.8rem'],
-    ["[data-ui='nav']", 'display', 'flex'],
-    ["[data-ui='nav'] a:link", 'text-decoration', 'none'],
-    ["[data-ui='nav'] a", 'color', '#fff'],
-    ["[data-ui='nav'] a", 'padding', '1rem'],
-    ["[data-ui='nav'] a.active", 'background-color', '#000'],
-    ["[data-ui='nav'] a > span", 'display', 'flex'],
-    ["[data-ui='nav'] a > span", 'gap', '.3rem'],
-    ["[data-ui='nav'] a > span", 'align-items', 'center'],
-  ];
+  const styles: TStyle[] = [];
   const theme: IAnkhCmsTheme = {
     palettes: [
       {
+        // @todo name
         active: true,
         colors: [
-          { h: 0, s: 20, l: 50 },
-          { h: 120, s: 20, l: 50 },
-          { h: 240, s: 20, l: 50 },
+          { h: 0, s: 41, l: 77 },
+          { h: 120, s: 41, l: 77 },
+          { h: 240, s: 41, l: 77 },
         ]
       },
       {
         colors: [
-          { h: 50, s: 40, l: 90 },
-          { h: 170, s: 40, l: 90 },
-          { h: 290, s: 40, l: 90 }
+          { h: 50, s: 21, l: 96 },
+          { h: 170, s: 21, l: 96 },
+          { h: 290, s: 21, l: 96 }
         ]
       }
     ]
