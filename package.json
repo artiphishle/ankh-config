@@ -11,7 +11,7 @@
     "@types/node": "^22.0.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "ankh-types": "^1.0.6",
+    "ankh-types": "^1.0.7",
     "prettier": "^3.3.3",
     "tsup": "^8.2.3",
     "typescript": "^5.5.4"
@@ -56,5 +56,5 @@
     "onSuccess": "node scripts/addClientDirective.js"
   },
   "types": "dist/index.d.ts",
-  "version": "1.0.5"
+  "version": "1.0.8"
 }

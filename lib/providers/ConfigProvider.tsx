@@ -4,12 +4,11 @@ import { IAnkhCmsConfig } from 'ankh-types';
 import { AnkhCmsConfigContext, getConfig } from "../contexts/ConfigContext";
 
 export function AnkhCmsConfigProvider({ children }: PropsWithChildren) {
-  const [config, setConfig] = useState<IAnkhCmsConfig>(getConfig());
-  const value = { config, setConfig };
+  const [config] = useState<IAnkhCmsConfig>(getConfig());
 
   return (
     <>
-      <AnkhCmsConfigContext.Provider value={value}>
+      <AnkhCmsConfigContext.Provider value={config}>
         {children}
       </AnkhCmsConfigContext.Provider>
     </>

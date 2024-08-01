@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useContext } from "react";
-import { EAnkhColorTone, IAnkhCmsConfig, TStyle } from 'ankh-types';
+import type { IAnkhCmsConfig, IAnkhCmsTheme, TStyle } from 'ankh-types';
 
 export function getConfig() {
   const nav = {
@@ -30,8 +30,6 @@ export function getConfig() {
     ['html', 'font-family', 'Arial'],
     ['html', 'font-size', '100%'],
     ['body', 'background-color', '#fff'],
-    ['body', 'text-align', 'center'],
-    ['body', 'color', '#323235'],
     ['body > header', 'padding', '1rem'],
     ['body > header', 'background-color', '#222'],
     ["[data-ui='accordion']", 'background-color', '#cdcdd1'],
@@ -47,8 +45,27 @@ export function getConfig() {
     ["[data-ui='nav'] a > span", 'gap', '.3rem'],
     ["[data-ui='nav'] a > span", 'align-items', 'center'],
   ];
-
-  return {
+  const theme: IAnkhCmsTheme = {
+    palettes: [
+      {
+        active: true,
+        colors: [
+          { h: 0, s: 20, l: 50 },
+          { h: 120, s: 20, l: 50 },
+          { h: 240, s: 20, l: 50 },
+        ]
+      },
+      {
+        colors: [
+          { h: 50, s: 40, l: 90 },
+          { h: 170, s: 40, l: 90 },
+          { h: 290, s: 40, l: 90 }
+        ]
+      }
+    ]
+  };
+  const config: IAnkhCmsConfig = {
+    theme,
     styles: [...styles],
     public: [
       {
@@ -56,14 +73,6 @@ export function getConfig() {
         files: ['./logo.png'],
       },
     ],
-    theme: {
-      colors: {
-        primary: "hsl(219, 78%, 33%)",
-        secondary: "hsl(39, 22%, 67%)",
-        accent: "",
-        base: "hsl(0, 0%, 93%)"
-      },
-    },
     pages: [
       {
         name: 'ankh-theming',
@@ -77,7 +86,7 @@ export function getConfig() {
                 ui: 'AnkhUiHtml', p: {}, uis: [
                   { ui: 'AnkhUiHeading', p: { level: 'h1', text: 'Theme' } },
                   { ui: 'AnkhUiHeading', p: { level: 'h2', text: 'Colors' } },
-                  { ui: 'AnkhUiColorPaletteGenerator', p: { tone: EAnkhColorTone.Earth } }
+                  { ui: 'AnkhUiColorPalettes', p: {} }
                 ],
               }]
           },
@@ -135,16 +144,12 @@ export function getConfig() {
         ],
       }
     ],
-  } as IAnkhCmsConfig;
+  };
+  return config;
 }
 
-export const AnkhCmsConfigContext = createContext<IAnkhCmsConfigContext | null>(null);
+export const AnkhCmsConfigContext = createContext<IAnkhCmsConfig>(getConfig());
 
 export function useAnkhCmsConfig() {
   return useContext(AnkhCmsConfigContext);
-}
-
-interface IAnkhCmsConfigContext {
-  config: IAnkhCmsConfig,
-  setConfig: React.Dispatch<React.SetStateAction<IAnkhCmsConfig>>
 }
