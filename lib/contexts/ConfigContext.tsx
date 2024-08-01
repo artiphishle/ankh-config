@@ -6,6 +6,7 @@ export function getConfig() {
   const nav = {
     ui: 'AnkhUiNav',
     p: {
+      _ui: { id: 'navnavanav' },
       items: [
         {
           name: 'home',
@@ -22,7 +23,7 @@ export function getConfig() {
       ],
     },
   };
-  const header = { ui: 'AnkhUiHtml', p: { tagName: 'header' }, uis: [{ ...nav }] };
+  const header = { ui: 'AnkhUiHtml', p: { _ui: { id: 'headi' }, tagName: 'header' }, uis: [{ ...nav }] };
   const styles: TStyle[] = [];
   const theme: IAnkhCmsTheme = {
     palettes: [
@@ -60,13 +61,13 @@ export function getConfig() {
           { ...header },
           {
             ui: 'AnkhUiHtml',
-            p: { tagName: 'main' },
+            p: { _ui: { id: 'ui-01' }, tagName: 'main' },
             uis: [
               {
-                ui: 'AnkhUiHtml', p: {}, uis: [
-                  { ui: 'AnkhUiHeading', p: { level: 'h1', text: 'Theme' } },
+                ui: 'AnkhUiHtml', p: { _ui: { id: 'ui-02' } }, uis: [
+                  { ui: 'AnkhUiHeading', p: { _ui: { id: 'ui-03' }, level: 'h1', text: 'Theme' } },
                   { ui: 'AnkhUiHeading', p: { level: 'h2', text: 'Colors' } },
-                  { ui: 'AnkhUiColorPalettes', p: {} }
+                  { ui: 'AnkhUiColorPalettes', p: { _ui: { id: 'ui-04' } } }
                 ],
               }]
           },
@@ -78,11 +79,12 @@ export function getConfig() {
           { ...header },
           {
             ui: 'AnkhUiHtml',
-            p: { tagName: 'main' },
+            p: { _ui: { id: 'ui-05' }, tagName: 'main' },
             uis: [
               {
                 ui: 'AnkhUiImage',
                 p: {
+                  _ui: { id: 'ui-06' },
                   alt: 'Logo',
                   src: '/images/logo.png',
                   width: 625,
@@ -99,24 +101,27 @@ export function getConfig() {
           { ...header },
           {
             ui: 'AnkhUiHtml',
-            p: { tagName: 'main' },
+            p: { _ui: 'ui-07', tagName: 'main' },
             uis: [
               {
                 ui: 'AnkhUiGrid',
-                p: { columns: 4 },
+                p: { _ui: { id: 'gridfattherofabout-10' }, columns: 4 },
                 uis: [
-                  { ui: 'AnkhUiHtml', p: { text: '1' } },
-                  { ui: 'AnkhUiHtml', p: { text: '2' } },
-                  { ui: 'AnkhUiHtml', p: { text: '3' } },
-                  { ui: 'AnkhUiHtml', p: { text: '4' } },
-                  { ui: 'AnkhUiHtml', p: { text: '5' } },
-                  { ui: 'AnkhUiHtml', p: { text: '6' } },
-                  { ui: 'AnkhUiHtml', p: { text: '7' } },
-                  { ui: 'AnkhUiHtml', p: { text: '8' } },
-                  { ui: 'AnkhUiHtml', p: { text: '9' } },
-                  { ui: 'AnkhUiHtml', p: { text: '10' } },
-                  { ui: 'AnkhUiHtml', p: { text: '11' } },
-                  { ui: 'AnkhUiHtml', p: { text: '12' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-01' }, text: '1' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-02' }, text: '2' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-03' }, text: '3' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-04' }, text: '4' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-05' }, text: '5' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-06' }, text: '6' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-07' }, text: '7' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-08' }, text: '8' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-09' }, text: '9' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-10' }, text: '10' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-11' }, text: '11' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-12' }, text: '12' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-13' }, text: '13' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-14' }, text: '14' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: 'gridi-15' }, text: '15' } },
                 ],
               }
             ],
