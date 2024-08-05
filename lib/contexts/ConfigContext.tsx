@@ -28,8 +28,18 @@ export function getConfig() {
   const theme: IAnkhCmsTheme = {
     palettes: [
       {
-        // @todo name
+        name: "BC Visions",
         active: true,
+        colors: [
+          { h: 300, s: 14, l: 4 },
+          { h: 32, s: 22, l: 53 },
+          { h: 0, s: 0, l: 98 },
+          { h: 285, s: 79, l: 24 },
+          { h: 37, s: 71, l: 89 }
+        ]
+      },
+      {
+        name: "Earth Max",
         colors: [
           { h: 0, s: 41, l: 77 },
           { h: 120, s: 41, l: 77 },
@@ -37,6 +47,39 @@ export function getConfig() {
         ]
       },
       {
+        name: "Fluorescent Max",
+        colors: [
+          { h: 50, s: 100, l: 100 },
+          { h: 170, s: 100, l: 100 },
+          { h: 290, s: 100, l: 100 }
+        ]
+      },
+      {
+        name: "Jewel Max",
+        colors: [
+          { h: 50, s: 83, l: 76 },
+          { h: 170, s: 83, l: 76 },
+          { h: 290, s: 83, l: 76 }
+        ]
+      },
+      {
+        name: "Neutral Max",
+        colors: [
+          { h: 50, s: 10, l: 90 },
+          { h: 170, s: 10, l: 90 },
+          { h: 290, s: 10, l: 90 }
+        ]
+      },
+      {
+        name: "Shade Max",
+        colors: [
+          { h: 50, s: 0, l: 100 },
+          { h: 170, s: 0, l: 100 },
+          { h: 290, s: 0, l: 100 }
+        ]
+      },
+      {
+        name: "Pastell Max",
         colors: [
           { h: 50, s: 21, l: 96 },
           { h: 170, s: 21, l: 96 },
