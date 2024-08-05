@@ -47,11 +47,11 @@ export function getConfig() {
         ]
       },
       {
-        name: "Fluorescent Max",
+        name: "Fluorescent Min",
         colors: [
-          { h: 50, s: 100, l: 100 },
-          { h: 170, s: 100, l: 100 },
-          { h: 290, s: 100, l: 100 }
+          { h: 50, s: 63, l: 82 },
+          { h: 170, s: 63, l: 82 },
+          { h: 290, s: 63, l: 82 }
         ]
       },
       {
@@ -63,11 +63,19 @@ export function getConfig() {
         ]
       },
       {
-        name: "Neutral Max",
+        name: "Neutral Min",
         colors: [
-          { h: 50, s: 10, l: 90 },
-          { h: 170, s: 10, l: 90 },
-          { h: 290, s: 10, l: 90 }
+          { h: 50, s: 1, l: 70 },
+          { h: 170, s: 1, l: 70 },
+          { h: 290, s: 1, l: 70 }
+        ]
+      },
+      {
+        name: "Pastell Max",
+        colors: [
+          { h: 50, s: 21, l: 96 },
+          { h: 170, s: 21, l: 96 },
+          { h: 290, s: 21, l: 96 }
         ]
       },
       {
@@ -78,14 +86,6 @@ export function getConfig() {
           { h: 290, s: 0, l: 100 }
         ]
       },
-      {
-        name: "Pastell Max",
-        colors: [
-          { h: 50, s: 21, l: 96 },
-          { h: 170, s: 21, l: 96 },
-          { h: 290, s: 21, l: 96 }
-        ]
-      }
     ]
   };
   const config: IAnkhCmsConfig = {
