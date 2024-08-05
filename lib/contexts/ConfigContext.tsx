@@ -31,10 +31,10 @@ export function getConfig() {
         name: "BC Visions",
         active: true,
         colors: [
-          { h: 300, s: 14, l: 4 },
-          { h: 32, s: 22, l: 53 },
           { h: 285, s: 79, l: 24 },
+          { h: 32, s: 22, l: 53 },
           { h: 37, s: 71, l: 89 },
+          { h: 300, s: 14, l: 4 },
           { h: 0, s: 0, l: 98 }
         ]
       },
