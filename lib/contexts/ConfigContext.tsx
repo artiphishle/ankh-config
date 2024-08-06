@@ -1,93 +1,115 @@
 "use client";
 import { createContext, useContext } from "react";
-import type { IAnkhCmsConfig, IAnkhCmsTheme, TStyle } from 'ankh-types';
+import { IAnkhCmsThemePalette, type IAnkhCmsConfig, type IAnkhCmsTheme, type TStyle } from 'ankh-types';
+import { useIndexedDb } from "ankh-hooks";
+
+const THEME_ID = 1337;
+
+const nav = {
+  ui: 'AnkhUiNav',
+  p: {
+    _ui: { id: 1 },
+    items: [
+      {
+        name: 'home',
+        icon: 'House',
+      },
+      {
+        name: 'about',
+        icon: 'Factory',
+      },
+      {
+        name: 'ankh-theming',
+        icon: 'Settings',
+      },
+    ],
+  },
+};
+const header = { ui: 'AnkhUiHtml', p: { _ui: { id: 2 }, tagName: 'header' }, uis: [{ ...nav }] };
+const styles: TStyle[] = [];
+const theme: IAnkhCmsTheme = {
+  palettes: [
+    {
+      name: "BC Visions",
+      active: true,
+      colors: [
+        { h: 285, s: 79, l: 24 },
+        { h: 32, s: 22, l: 53 },
+        { h: 37, s: 71, l: 89 },
+        { h: 300, s: 14, l: 4 },
+        { h: 0, s: 0, l: 98 }
+      ]
+    },
+    {
+      name: "Earth Max",
+      colors: [
+        { h: 0, s: 41, l: 77 },
+        { h: 120, s: 41, l: 77 },
+        { h: 240, s: 41, l: 77 },
+      ]
+    },
+    {
+      name: "Fluorescent Min",
+      colors: [
+        { h: 50, s: 63, l: 82 },
+        { h: 170, s: 63, l: 82 },
+        { h: 290, s: 63, l: 82 }
+      ]
+    },
+    {
+      name: "Jewel Max",
+      colors: [
+        { h: 50, s: 83, l: 76 },
+        { h: 170, s: 83, l: 76 },
+        { h: 290, s: 83, l: 76 }
+      ]
+    },
+    {
+      name: "Neutral Min",
+      colors: [
+        { h: 50, s: 1, l: 70 },
+        { h: 170, s: 1, l: 70 },
+        { h: 290, s: 1, l: 70 }
+      ]
+    },
+    {
+      name: "Pastell Max",
+      colors: [
+        { h: 50, s: 21, l: 96 },
+        { h: 170, s: 21, l: 96 },
+        { h: 290, s: 21, l: 96 }
+      ]
+    },
+    {
+      name: "Shade Max",
+      colors: [
+        { h: 50, s: 0, l: 100 },
+        { h: 170, s: 0, l: 100 },
+        { h: 290, s: 0, l: 100 }
+      ]
+    },
+  ]
+};
+
+export function getActivePalette() {
+  return new Promise<IAnkhCmsThemePalette>(async (resolve, reject) => {
+    const { db, api } = useIndexedDb<any>({ dbName: "ankh-cms", storeName: "ui-config" });
+    const interval = setInterval(async () => {
+      if (!db) return;
+      clearInterval(interval);
+      try {
+        const { palettes = [] } = (await api.get(THEME_ID)) || {};
+        const storedPalette = palettes.filter((palette: IAnkhCmsThemePalette) => palette.active);
+        const activePalette = storedPalette || theme.palettes.filter((palette) => palette.active)[0];
+        resolve(activePalette);
+      } catch (error: any) {
+        reject(error);
+      }
+    }, 100);
+  });
+}
 
 export function getConfig() {
-  const nav = {
-    ui: 'AnkhUiNav',
-    p: {
-      _ui: { id: 1 },
-      items: [
-        {
-          name: 'home',
-          icon: 'House',
-        },
-        {
-          name: 'about',
-          icon: 'Factory',
-        },
-        {
-          name: 'ankh-theming',
-          icon: 'Settings',
-        },
-      ],
-    },
-  };
-  const header = { ui: 'AnkhUiHtml', p: { _ui: { id: 2 }, tagName: 'header' }, uis: [{ ...nav }] };
-  const styles: TStyle[] = [];
-  const theme: IAnkhCmsTheme = {
-    palettes: [
-      {
-        name: "BC Visions",
-        active: true,
-        colors: [
-          { h: 285, s: 79, l: 24 },
-          { h: 32, s: 22, l: 53 },
-          { h: 37, s: 71, l: 89 },
-          { h: 300, s: 14, l: 4 },
-          { h: 0, s: 0, l: 98 }
-        ]
-      },
-      {
-        name: "Earth Max",
-        colors: [
-          { h: 0, s: 41, l: 77 },
-          { h: 120, s: 41, l: 77 },
-          { h: 240, s: 41, l: 77 },
-        ]
-      },
-      {
-        name: "Fluorescent Min",
-        colors: [
-          { h: 50, s: 63, l: 82 },
-          { h: 170, s: 63, l: 82 },
-          { h: 290, s: 63, l: 82 }
-        ]
-      },
-      {
-        name: "Jewel Max",
-        colors: [
-          { h: 50, s: 83, l: 76 },
-          { h: 170, s: 83, l: 76 },
-          { h: 290, s: 83, l: 76 }
-        ]
-      },
-      {
-        name: "Neutral Min",
-        colors: [
-          { h: 50, s: 1, l: 70 },
-          { h: 170, s: 1, l: 70 },
-          { h: 290, s: 1, l: 70 }
-        ]
-      },
-      {
-        name: "Pastell Max",
-        colors: [
-          { h: 50, s: 21, l: 96 },
-          { h: 170, s: 21, l: 96 },
-          { h: 290, s: 21, l: 96 }
-        ]
-      },
-      {
-        name: "Shade Max",
-        colors: [
-          { h: 50, s: 0, l: 100 },
-          { h: 170, s: 0, l: 100 },
-          { h: 290, s: 0, l: 100 }
-        ]
-      },
-    ]
-  };
   const config: IAnkhCmsConfig = {
     theme,
     styles: [...styles],
@@ -177,7 +199,11 @@ export function getConfig() {
 }
 
 export const AnkhCmsConfigContext = createContext<IAnkhCmsConfig>(getConfig());
+export const AnkhCmsPaletteContext = createContext<Promise<IAnkhCmsThemePalette>>(getActivePalette());
 
 export function useAnkhCmsConfig() {
   return useContext(AnkhCmsConfigContext);
+}
+export function useAnkhCmsPalette() {
+  return useContext(AnkhCmsPaletteContext);
 }
