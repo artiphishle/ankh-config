@@ -22,6 +22,10 @@ const nav = {
         name: 'ankh-theming',
         icon: 'Settings',
       },
+      {
+        name: 'ankh-fonts',
+        icon: 'Settings'
+      }
     ],
   },
 };
