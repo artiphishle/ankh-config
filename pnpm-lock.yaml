@@ -28,8 +28,8 @@ importers:
         specifier: ^18.3.0
         version: 18.3.0
       ankh-types:
-        specifier: ^1.1.0
-        version: 1.1.0
+        specifier: ^1.1.2
+        version: 1.1.2
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -326,8 +326,8 @@ packages:
     resolution: {integrity: sha512-4mZtNhXc6CIxGiIFC+T//0XPBPp91wLWyRnJ0lx9lCH0HiP2Q724aSQOOvTuuoKKSImlK+zHR8Y0W0NKC2J6NQ==}
     engines: {node: ^20.15.x, pnpm: ^9.5.x}
 
-  ankh-types@1.1.0:
-    resolution: {integrity: sha512-tfrp/9Iu07FgZNaATNsShZX17oXxMI/gdbpwlmVMv0gag2hlTbJFD8zDBs+SmYWkXmX/kxG/9KY0gsece1oEyg==}
+  ankh-types@1.1.2:
+    resolution: {integrity: sha512-ZAXt255KEBxt9INWadJ6sL2yKr32Xo0q3Vf0tQgod9nLGcyL1DBlfF1pH32Iwc4oofL+FSLX4O8vwBbiK2qiMg==}
     engines: {node: ^20.15.x, pnpm: ^9.5.x}
 
   ansi-regex@5.0.1:
@@ -985,7 +985,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       uuidv4: 6.2.13
 
-  ankh-types@1.1.0: {}
+  ankh-types@1.1.2: {}
 
   ansi-regex@5.0.1: {}
 

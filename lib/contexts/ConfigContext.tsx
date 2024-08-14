@@ -91,16 +91,17 @@ const theme: IAnkhCmsTheme = {
   ]
 };
 
-export function getActivePalette() {
+export function useActivePalette() {
   return new Promise<IAnkhCmsThemePalette>(async (resolve, reject) => {
     const { db, api } = useIndexedDb<any>({ dbName: "ankh-cms", storeName: "ui-config" });
     const interval = setInterval(async () => {
       if (!db) return;
+      /** @todo Handle timeout, first meditate about if 'db' cannot be obtained for a reason? */
       clearInterval(interval);
       try {
         const { palettes = [] } = (await api.get(THEME_ID)) || {};
-        const storedPalette = palettes.filter((palette: IAnkhCmsThemePalette) => palette.active);
-        const activePalette = storedPalette || theme.palettes.filter((palette) => palette.active)[0];
+        const storedPalette = palettes.filter((palette: IAnkhCmsThemePalette) => palette.active)[0];
+        const activePalette = storedPalette || (theme.palettes.filter((palette) => palette.active))[0];
         resolve(activePalette);
       } catch (error: any) {
         reject(error);
@@ -113,6 +114,9 @@ export function getConfig() {
   const config: IAnkhCmsConfig = {
     theme,
     styles: [...styles],
+    apiKeys: {
+      googleFonts: 'AIzaSyDbhn2zATglH-mwe_LhHcHFsk_fDhQFHc8'
+    },
     public: [
       {
         name: 'images',
@@ -137,6 +141,31 @@ export function getConfig() {
               }]
           },
         ],
+      },
+      {
+        name: 'ankh-fonts',
+        uis: [
+          { ...header },
+          {
+            ui: 'AnkhUiHtml',
+            p: { _ui: { id: 61514 }, tagName: 'main' },
+            uis: [
+              {
+                ui: 'AnkhUiList',
+                p: {
+                  endpoint: {
+                    method: 'GET',
+                    url: 'https://webfonts.googleapis.com/v1/webfonts?capability=WOFF2&key=AIzaSyDbhn2zATglH-mwe_LhHcHFsk_fDhQFHc8'
+                  }
+                }
+              },
+              {
+                ui: 'AnkhUiPagination',
+                p: {}
+              }
+            ]
+          }
+        ]
       },
       {
         name: 'home',
@@ -199,11 +228,7 @@ export function getConfig() {
 }
 
 export const AnkhCmsConfigContext = createContext<IAnkhCmsConfig>(getConfig());
-export const AnkhCmsPaletteContext = createContext<Promise<IAnkhCmsThemePalette>>(getActivePalette());
 
 export function useAnkhCmsConfig() {
   return useContext(AnkhCmsConfigContext);
-}
-export function useAnkhCmsPalette() {
-  return useContext(AnkhCmsPaletteContext);
 }
