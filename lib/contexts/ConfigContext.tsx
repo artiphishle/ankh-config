@@ -8,7 +8,7 @@ const THEME_ID = 1337;
 const nav = {
   ui: 'AnkhUiNav',
   p: {
-    _ui: { id: 1 },
+    _ui: { id: '1' },
     items: [
       {
         name: 'home',
@@ -29,7 +29,7 @@ const nav = {
     ],
   },
 };
-const header = { ui: 'AnkhUiHtml', p: { _ui: { id: 2 }, tagName: 'header' }, uis: [{ ...nav }] };
+const header = { ui: 'AnkhUiHtml', p: { _ui: { id: '2' }, tagName: 'header' }, uis: [{ ...nav }] };
 const styles: TStyle[] = [];
 const theme: IAnkhCmsTheme = {
   palettes: [
@@ -134,13 +134,13 @@ export function getConfig() {
           { ...header },
           {
             ui: 'AnkhUiHtml',
-            p: { _ui: { id: 3 }, tagName: 'main' },
+            p: { _ui: { id: '3' }, tagName: 'main' },
             uis: [
               {
-                ui: 'AnkhUiHtml', p: { _ui: { id: 3 } }, uis: [
-                  { ui: 'AnkhUiHeading', p: { _ui: { id: 4 }, level: 'h1', text: 'Theme' } },
-                  { ui: 'AnkhUiHeading', p: { level: 'h2', text: 'Colors' } },
-                  { ui: 'AnkhUiColorPalettes', p: { _ui: { id: 5 } } }
+                ui: 'AnkhUiHtml', p: { _ui: { id: '3' } }, uis: [
+                  { ui: 'AnkhUiHeading', p: { _ui: { id: '4' }, level: 'h1', text: 'Theme' } },
+                  { ui: 'AnkhUiHeading', p: { _ui: { id: '444' }, level: 'h2', text: 'Colors' } },
+                  { ui: 'AnkhUiColorPalettes', p: { _ui: { id: '5' } } }
                 ],
               }]
           },
@@ -152,20 +152,22 @@ export function getConfig() {
           { ...header },
           {
             ui: 'AnkhUiHtml',
-            p: { _ui: { id: 61514 }, tagName: 'main' },
+            p: { _ui: { id: '61514' }, tagName: 'main' },
             uis: [
               {
-                ui: 'AnkhUiList',
-                p: {
-                  endpoint: {
-                    method: 'GET',
-                    url: 'https://webfonts.googleapis.com/v1/webfonts?capability=WOFF2&key=AIzaSyDbhn2zATglH-mwe_LhHcHFsk_fDhQFHc8'
-                  }
-                }
-              },
-              {
-                ui: 'AnkhUiPagination',
-                p: {}
+                ui: 'AnkhUiHtml', p: { _ui: { id: '99993429' } }, uis: [
+                  { ui: 'AnkhUiHeading', p: { _ui: { id: '34525998' }, level: 'h1', text: 'Font Manager' } },
+                  {
+                    ui: 'AnkhUiList',
+                    p: {
+                      endpoint: {
+                        method: 'GET',
+                        url: 'https://webfonts.googleapis.com/v1/webfonts?capability=WOFF2&key=AIzaSyDbhn2zATglH-mwe_LhHcHFsk_fDhQFHc8'
+                      }
+                    }
+                  },
+                  { ui: 'AnkhUiPagination', p: { _ui: { id: '2342222' } } }
+                ]
               }
             ]
           }
@@ -177,12 +179,12 @@ export function getConfig() {
           { ...header },
           {
             ui: 'AnkhUiHtml',
-            p: { _ui: { id: 6 }, tagName: 'main' },
+            p: { _ui: { id: '6' }, tagName: 'main' },
             uis: [
               {
                 ui: 'AnkhUiImage',
                 p: {
-                  _ui: { id: 7 },
+                  _ui: { id: '7' },
                   alt: 'Logo',
                   src: '/images/logo.png',
                   width: 625,
@@ -199,27 +201,27 @@ export function getConfig() {
           { ...header },
           {
             ui: 'AnkhUiHtml',
-            p: { _ui: { id: 7 }, tagName: 'main' },
+            p: { _ui: { id: '7' }, tagName: 'main' },
             uis: [
               {
                 ui: 'AnkhUiGrid',
-                p: { _ui: { id: 8 }, columns: 4 },
+                p: { _ui: { id: '8' }, columns: 4 },
                 uis: [
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 9 }, text: '1' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 10 }, text: '2' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 11 }, text: '3' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 12 }, text: '4' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 13 }, text: '5' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 14 }, text: '6' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 15 }, text: '7' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 16 }, text: '8' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 17 }, text: '9' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 18 }, text: '10' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 19 }, text: '11' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 20 }, text: '12' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 21 }, text: '13' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 22 }, text: '14' } },
-                  { ui: 'AnkhUiHtml', p: { _ui: { id: 23 }, text: '15' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '9' }, text: '1' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '10' }, text: '2' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '11' }, text: '3' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '12' }, text: '4' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '13' }, text: '5' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '14' }, text: '6' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '15' }, text: '7' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '16' }, text: '8' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '17' }, text: '9' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '18' }, text: '10' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '19' }, text: '11' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '20' }, text: '12' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '21' }, text: '13' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '22' }, text: '14' } },
+                  { ui: 'AnkhUiHtml', p: { _ui: { id: '23' }, text: '15' } },
                 ],
               }
             ],
